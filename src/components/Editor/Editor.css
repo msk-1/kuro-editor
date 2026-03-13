@@ -1,0 +1,161 @@
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background-color: #1e1f22;
+
+  /* Default (non-accessibility) mode */
+  --editor-font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  --editor-line-height: 1.5;
+  --editor-letter-spacing: normal;
+  --editor-word-spacing: normal;
+}
+
+/* Accessibility mode - OpenDyslexic */
+.editor-panel.accessibility-mode {
+  --editor-font-family: 'OpenDyslexic Mono', 'OpenDyslexic', 'Consolas', 'Monaco', monospace;
+  --editor-line-height: 1.8;
+  --editor-letter-spacing: 0.05em;
+  --editor-word-spacing: 0.1em;
+}
+
+.editor-area {
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-area .cm-editor {
+  height: 100%;
+}
+
+.editor-area .cm-scroller {
+  font-family: var(--editor-font-family) !important;
+}
+
+.editor-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 4px 16px;
+  background-color: #1e1f22;
+  border-top: 1px solid #393b40;
+  color: #6f737a;
+  font-size: 12px;
+  min-height: 24px;
+}
+
+.status-btn {
+  background: none;
+  border: 1px solid #43454a;
+  border-radius: 4px;
+  color: #6f737a;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.status-btn:hover {
+  border-color: #6f737a;
+  color: #bcbec4;
+  background-color: #2b2d30;
+}
+
+.status-btn.active {
+  background-color: #4a88c7;
+  border-color: #4a88c7;
+  color: #ffffff;
+}
+
+.status-btn.active:hover {
+  background-color: #5a98d7;
+  border-color: #5a98d7;
+}
+
+.status-item.cursor-pos {
+  color: #bcbec4;
+}
+
+.status-item.zoom {
+  color: #6aab73;
+}
+
+.status-item.search-count {
+  color: #4a88c7;
+  font-weight: 500;
+}
+
+.status-spacer {
+  flex: 1;
+}
+
+/* Whitespace markers */
+.cm-tab-char {
+  position: relative;
+}
+
+.cm-tab-char::before {
+  content: '→';
+  position: absolute;
+  color: #5c6370;
+  pointer-events: none;
+}
+
+.cm-tab-char.search-match::before {
+  color: #d4a857;
+}
+
+.cm-fullwidth-space {
+  position: relative;
+  background-color: rgba(100, 70, 70, 0.3);
+}
+
+.cm-fullwidth-space::before {
+  content: '□';
+  position: absolute;
+  color: #8b5a5a;
+  pointer-events: none;
+}
+
+.cm-fullwidth-space.search-match {
+  background-color: rgba(90, 74, 31, 0.5);
+}
+
+.cm-fullwidth-space.search-match::before {
+  color: #d4a857;
+}
+
+.cm-line-ending-marker {
+  color: #5c6370;
+  font-size: 0.85em;
+  margin-left: 2px;
+  pointer-events: none;
+  user-select: none;
+  display: inline-block;
+}
+
+.cm-line-ending-marker.crlf {
+  color: #6a8a6a;
+}
+
+.cm-line-ending-marker.search-match {
+  background-color: #5a4a1f;
+  color: #d4a857;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* CRLF placeholder is invisible - the line ending widget shows the marker */
+.cm-crlf-placeholder {
+  font-size: 0;
+  width: 0;
+  display: inline-block;
+}
+
+/* Custom search match for escape sequences (like \r\n matching CRLF placeholder) */
+.cm-escape-search-match {
+  background-color: #5a4a1f !important;
+  border-radius: 2px;
+}

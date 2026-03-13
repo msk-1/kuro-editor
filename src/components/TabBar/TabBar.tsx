@@ -1,3 +1,4 @@
+import type { Tab } from '../../types'
 import './TabBar.css'
 
 function getFileIcon(fileName: string): { icon: string; color: string } {
@@ -56,15 +57,6 @@ function getFileIcon(fileName: string): { icon: string; color: string } {
   }
 }
 
-export interface Tab {
-  id: string
-  fileName: string
-  filePath?: string
-  content: string
-  isModified: boolean
-  cursorPosition?: number
-}
-
 interface TabBarProps {
   tabs: Tab[]
   activeTabId: string
@@ -80,14 +72,12 @@ export function TabBar({ tabs, activeTabId, onTabClick, onTabClose, onNewTab }: 
   }
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Only create new tab if clicking on empty area (not on a tab)
     if (e.target === e.currentTarget) {
       onNewTab()
     }
   }
 
   const handleMouseDown = (e: React.MouseEvent, tabId: string) => {
-    // Middle click (scroll wheel) to close tab
     if (e.button === 1) {
       e.preventDefault()
       onTabClose(tabId)

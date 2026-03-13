@@ -1,9 +1,9 @@
 .tabbar {
   display: flex;
   align-items: stretch;
-  background-color: #1e1e1e;
-  border-bottom: 1px solid #323232;
-  height: 32px;
+  background-color: #1e1f22;
+  border-bottom: 1px solid #393b40;
+  height: 40px;
   padding: 0;
   gap: 0;
 }
@@ -13,6 +13,7 @@
   flex: 1;
   overflow-x: auto;
   gap: 0;
+  padding-top: 4px;
 }
 
 .tabs-container::-webkit-scrollbar {
@@ -22,25 +23,25 @@
 .tab {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding: 0 12px;
   background-color: transparent;
   border: none;
-  border-right: 1px solid #323232;
-  border-radius: 0;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
   min-width: 80px;
-  max-width: 180px;
+  max-width: 200px;
   position: relative;
   transition: background-color 0.1s;
+  margin: 0 1px;
 }
 
 .tab:hover {
-  background-color: #2a2a2a;
+  background-color: #2b2d30;
 }
 
 .tab.active {
-  background-color: #2d2d2d;
+  background-color: #2b2d30;
 }
 
 .tab.active::after {
@@ -49,12 +50,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: #a8c878;
+  height: 3px;
+  background-color: #4a88c7;
+  border-radius: 3px 3px 0 0;
 }
 
 .tab-icon {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   min-width: 20px;
@@ -63,8 +65,8 @@
 
 .tab-name {
   flex: 1;
-  font-size: 12px;
-  color: #808080;
+  font-size: 13px;
+  color: #6f737a;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,27 +76,27 @@
 }
 
 .tab:hover .tab-name {
-  color: #b0b0b0;
+  color: #bcbec4;
 }
 
 .tab.active .tab-name {
-  color: #e0e0e0;
+  color: #bcbec4;
 }
 
 .modified-indicator {
-  color: #a8c878;
-  font-size: 10px;
+  color: #4a88c7;
+  font-size: 8px;
 }
 
 .tab-close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: none;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   color: transparent;
   cursor: pointer;
   font-size: 14px;
@@ -104,37 +106,36 @@
 }
 
 .tab:hover .tab-close {
-  color: #606060;
+  color: #6f737a;
 }
 
 .tab.active .tab-close {
-  color: #606060;
+  color: #6f737a;
 }
 
 .tab-close:hover {
-  background-color: #404040;
-  color: #e0e0e0;
+  background-color: #43454a;
+  color: #bcbec4;
 }
 
 .new-tab-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
+  width: 36px;
   height: 100%;
   background: none;
   border: none;
-  border-left: 1px solid #323232;
   border-radius: 0;
-  color: #606060;
+  color: #6f737a;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
   padding: 0;
   transition: all 0.1s;
 }
 
 .new-tab-btn:hover {
-  background-color: #2a2a2a;
-  color: #a8c878;
+  background-color: #2b2d30;
+  color: #bcbec4;
 }
